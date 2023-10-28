@@ -1,0 +1,333 @@
+/* Start Variables */
+:root {
+  --main-color: #19c8fa;
+  --transparent-color: #125c74;
+}
+/* End Variables */
+
+/* Start Globl Rules */
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* Medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* Larger */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* End Globl Rules */
+/* Start components */
+.main-heading {
+  text-align: center;
+  padding: 100px;
+}
+.main-heading h2 {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: normal;
+  position: relative;
+  margin-bottom: 70px;
+}
+.main-heading h2::before {
+  content: "";
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  background: #333;
+  left: 50%;
+  bottom: -30px;
+  transform: translateX(-50%);
+}
+.main-heading h2::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -40px;
+  background: white;
+}
+.main-heading p {
+  max-width: 100%;
+  width: 550px;
+  margin: 20px auto 100px;
+  line-height: 2;
+  color: #777;
+}
+/* End components */
+
+/* Start Header */
+header {
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  left: 0;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 97px;
+}
+
+header .container::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: calc(100% - 30px);
+  bottom: 0;
+  left: 15px;
+  background-color: #a2a2a2;
+}
+
+header .logo img {
+  height: 40px;
+}
+
+header nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header .toggle-menu {
+  color: white;
+  font-size: 22px;
+}
+@media (min-width: 767px) {
+  header .toggle-menu {
+    display: none;
+  }
+}
+header nav ul {
+  display: flex;
+}
+@media (max-width: 767px) {
+  header nav ul {
+    display: none;
+  }
+  header .toggle-menu:hover + ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: hsl(0, 0%, 0% / 50%);
+  }
+  header ul li a {
+    padding: 15px !important;
+  }
+}
+
+header nav ul li a {
+  padding: 40px 10px;
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -o-transition: 0.3s;
+  position: relative;
+  z-index: 2;
+}
+header nav a.active,
+header nav ul li a:hover {
+  color: var(--main-color, #19c8fa);
+  border-bottom: 1px solid var(--main-color);
+}
+
+header .form {
+  width: 40px;
+  height: 30px;
+  position: relative;
+  margin-left: 30px;
+  border-left: 1px solid white;
+}
+header .form i {
+  color: white;
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+header .form i:hover {
+  color: var(--main-color);
+}
+
+/* End Header */
+
+/* Start laanding*/
+.landing {
+  min-height: 100vh;
+  background-color: black;
+  position: relative;
+}
+.landing .image img {
+  position: absolute;
+  background-size: cover;
+  height: 100vh;
+  width: 50%;
+  right: 0;
+}
+.landing .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.303);
+}
+.landing .text {
+  position: absolute;
+  display: flex;
+  color: white;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 50%;
+  justify-content: flex-end;
+  background-color: #125c74;
+  padding: 50px;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+@media (max-width: 767px) {
+  .landing .text {
+    display: none;
+  }
+}
+
+.landing .text .content {
+  max-width: 500px;
+}
+.landing .text .content h2 {
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.landing .text .content p {
+  line-height: 2;
+  font-size: 14px;
+}
+.landing .change-background {
+  position: absolute;
+  color: #ddd;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  font-size: 33px;
+}
+@media (max-width: 767px) {
+  .landing .change-background {
+    display: none;
+  }
+}
+.landing .fa-angle-left {
+  left: 30px;
+}
+.landing .fa-angle-right {
+  right: 30px;
+}
+.landing .bullets {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.landing .bullets li {
+  width: 22px;
+  height: 22px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin-left: 5px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.landing .bullets .active {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+
+/* End landing*/
+/* Start services*/
+.services {
+  height: 100vh;
+}
+.services .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.services .container .col {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 80px;
+
+  align-items: center;
+}
+.services .col h3 {
+  color: var(--main-color);
+}
+/* End services*/
